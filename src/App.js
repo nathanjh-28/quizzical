@@ -1,4 +1,5 @@
 import React from "react";
+import Welcome from "./components/Welcome";
 import Question from "./components/Question";
 import SubmitBtn from './components/SubmitBtn'
 
@@ -8,24 +9,27 @@ const apiURL = 'https://opentdb.com/api.php?amount=5&category=27&difficulty=easy
 export default function App() {
 
 
+  const [questions, setQuestions] = React.useState([]);
+
   React.useEffect(() => {
     async function getQuestions() {
       const res = await fetch(apiURL)
       const data = await res.json()
+      setQuestions(data.results)
       console.log(data.results)
     }
     getQuestions()
   }, [])
 
+  const questionElements = questions.map(obj => {
+    return <Question question={obj.question} />
+  })
+
   return (
     <main>
-      <h1>Quizzical</h1>
-      <p>5 random questions from Open Trivia Database</p>
-      <button>Start Quiz</button>
-      <Question />
-      <Question />
-      <Question />
-      <Question />
+      <Welcome />
+      {questionElements}
+
       <SubmitBtn />
     </main>
   );
