@@ -21,8 +21,8 @@ export default function App() {
     getQuestions()
   }, [])
 
-  const questionElements = questions.map(obj => {
-    return <Question question={obj.question} />
+  const questionElements = questions.map((obj, idx) => {
+    return <Question question={obj.question} key={idx} />
   })
 
   return (
