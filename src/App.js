@@ -8,6 +8,23 @@ const apiURL = 'https://opentdb.com/api.php?amount=5&category=27&difficulty=easy
 
 export default function App() {
 
+  function swap(arr, idx1, idx2) {
+    let temp = arr[idx1];
+    arr[idx1] = arr[idx2];
+    arr[idx2] = temp;
+    return arr;
+  }
+
+  function shuffle(arr) {
+    let count = 5;
+    while (count > 0) {
+      swap(arr, Math.floor(Math.random() * arr.length), Math.floor(Math.random() * arr.length))
+      count--;
+    }
+    return arr;
+  }
+
+
 
   const [questions, setQuestions] = React.useState([]);
 
@@ -23,7 +40,7 @@ export default function App() {
 
   const questionElements = questions.map((obj, idx) => {
     return <Question
-      question={obj.question}
+      obj={obj}
       key={idx} />
   })
 
