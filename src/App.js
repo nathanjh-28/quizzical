@@ -20,6 +20,8 @@ export default function App() {
     })
   }
 
+  // make a helper function that adds an array of shuffled answers to a question object
+
   React.useEffect(() => {
     async function getQuestions() {
       const res = await fetch(apiURL)
