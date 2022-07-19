@@ -10,6 +10,8 @@ export default function App() {
 
   const [questions, setQuestions] = React.useState([]);
 
+  const [startQuiz, setStartQuiz] = React.useState(false)
+
   const [answers, setAnswers] = React.useState([])
 
   function handleAnswers(ans, idx) {
@@ -20,6 +22,9 @@ export default function App() {
     })
   }
 
+  function startTheQuiz() {
+    setStartQuiz(true)
+  }
 
   React.useEffect(() => {
     async function getQuestions() {
@@ -44,10 +49,10 @@ export default function App() {
 
   return (
     <main>
-      <Welcome />
-      {questionElements}
+      {startQuiz ? questionElements : <Welcome handleClick={startTheQuiz} />}
 
-      <SubmitBtn />
+
+      {startQuiz && <SubmitBtn />}
     </main>
   );
 }
