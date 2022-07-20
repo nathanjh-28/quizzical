@@ -1,7 +1,8 @@
 import React from "react";
 import Welcome from "./components/Welcome";
 import Question from "./components/Question";
-import SubmitBtn from './components/SubmitBtn'
+import SubmitBtn from './components/SubmitBtn';
+import './style.css'
 
 
 const apiURL = 'https://opentdb.com/api.php?amount=5&category=27&difficulty=easy&type=multiple'

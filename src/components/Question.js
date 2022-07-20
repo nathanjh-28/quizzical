@@ -28,16 +28,20 @@ export default function Question({ obj, handleChange, idx }) {
     }, [])
 
     const answerArrEls = answerArr.map(item => {
-        return (<label>
-            <input type="radio"
-                name={obj.question}
-                id={obj.question}
-                value={item}
-                onChange={() => handleChange(item, idx)}
+        return (
+            <div className="answer-block">
+                <input
+                    type="radio"
+                    name={item}
+                    id={item}
+                    value={item}
+                    onChange={() => handleChange(item, idx)}
 
-            />
-            {item}
-        </label>)
+                />
+                <label htmlFor={item}>
+                    {item}
+                </label>
+            </div>)
     })
 
 
