@@ -48,7 +48,6 @@ export default function Question({ obj, handleChange, idx }) {
     return (<div>
         <h2> {obj.question}</h2>
         {answerArrEls}
-        <hr />
 
     </div>)
 }
