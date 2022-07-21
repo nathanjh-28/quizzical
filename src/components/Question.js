@@ -32,7 +32,7 @@ export default function Question({ obj, handleChange, idx }) {
             <div className="answer-block">
                 <input
                     type="radio"
-                    name={item}
+                    name={obj.question}
                     id={item}
                     value={item}
                     onChange={() => handleChange(item, idx)}
